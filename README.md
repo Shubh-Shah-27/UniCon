@@ -7,6 +7,8 @@ Concepts:
 
 Project Flow:
 <ul>
-<li>API Call is made on starting the application -</li>
-
+<li>API Call is made on starting the application -> Successful: The new value is stored in the SharedPreference</li>
+<li>User enters the value and presses Submit button</li>
+<li>On button press, value is fetched from the SharedPreference</li>
+<li>Corresponding rupees value is calculated and displayed</li>
 </ul>
