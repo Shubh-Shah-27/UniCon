@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         Log.e("MainActivity","Initialization Done");
 
         // API Call
-        String url = "https://openexchangerates.org/api/latest.json?app_id=ecb799ad0a1e4d158ab8b9d6094062c2&symbols=INR&prettyprint=true&show_alternative=true";
+        String url = "https://openexchangerates.org/api/latest.json?symbols=INR&prettyprint=true&show_alternative=true&app_id="+APIKey.key_OpenExchangeRates;
         APICall call = new APICall(this,edit);
         call.callWithURL(url);
         Log.e("MainActivity","API Call Done");
@@ -58,14 +58,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Pressing ENTER Key in EditText input -> Button Click
-        input.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-                    Log.i("MainActivity","Enter pressed");
-                    button.performClick();
-                }
-                return false;
+        input.setOnEditorActionListener((v, actionId, event) -> {
+            if (event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+                Log.i("MainActivity","Enter pressed");
+                button.performClick();
             }
+            return false;
         });
     }
 }
